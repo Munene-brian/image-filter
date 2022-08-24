@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
-import { Request } from "express";
+import { Request,Response } from "express";
 
 (async () => {
 
@@ -35,7 +35,7 @@ import { Request } from "express";
   // Root Endpoint
   // Displays a simple message to the user
 
-    app.get("/filteredimage/", async (req, res) => {
+    app.get("/filteredimage/", async (req:Request, res:Response) => {
     let { image_url}:{image_url:string} = req.query;
     if (!image_url) {
       return res.status(400).send('image address required');
