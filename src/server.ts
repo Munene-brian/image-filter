@@ -47,15 +47,13 @@ import { Request } from "express";
       await res.status(200).sendFile(filterimage, {}, (error: any) => {
         if (error) { 
           return res.status(422).send('unable to process image')}
-        // Deleting the used image file.
-        //deleteLocalFiles([filterimage])
       })
     } catch (error) {
       res.status(422).send('Invalid image url');
     }
     res.status(200).sendFile(filterimage,() =>{deleteLocalFiles([filterimage])});
   });
-  
+  // default root result
   app.get( "/", async ( req, res ) => {
     res.send("try GET /filteredimage?image_url={{}}")
   } );
