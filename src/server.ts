@@ -35,8 +35,8 @@ import { Request } from "express";
   // Root Endpoint
   // Displays a simple message to the user
 
-    app.get("/filteredimage/", async (req: any, res: any) => {
-    let { image_url } = req.query;
+    app.get("/filteredimage/", async (req, res) => {
+    let { image_url}:{image_url:string} = req.query;
     if (!image_url) {
       return res.status(400).send('image address required');
     }
